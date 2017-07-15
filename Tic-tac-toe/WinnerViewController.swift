@@ -16,11 +16,14 @@ class WinnerViewController: UIViewController {
     @IBOutlet weak var PlayerX: UIImageView!
     @IBOutlet weak var X: UIImageView!
     @IBOutlet weak var WinsX: UIImageView!
+    @IBOutlet weak var Draw: UIImageView!
     
     func WhoWon() {
-        if currentPlayer == Player.X {
+        if isDraw == true {
+            Draw.alpha = 1
+        } else if currentPlayer == Player.X && isDraw == false {
             PlayerX.alpha = 1; X.alpha = 1; WinsX.alpha = 1
-        } else if currentPlayer == Player.O {
+        } else if currentPlayer == Player.O && isDraw == false {
             PlayerO.alpha = 1; O.alpha = 1; WinsO.alpha = 1
         }
     }
@@ -29,7 +32,7 @@ class WinnerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PlayerO.alpha = 0; O.alpha = 0; WinsO.alpha = 0; PlayerX.alpha = 0; X.alpha = 0; WinsX.alpha = 0
+        PlayerO.alpha = 0; O.alpha = 0; WinsO.alpha = 0; PlayerX.alpha = 0; X.alpha = 0; WinsX.alpha = 0; Draw.alpha = 0
         WhoWon()
 
 
